@@ -63,7 +63,11 @@ int main(int argc, char** argv){
     search.age = age[i];
     found = tfind(&search, &tree, compare_stat);
     insert = NULL == found ? malloc(sizeof(stat_t)) : NULL;
-    found = NULL == found ? tsearch(insert, &tree, compare_stat) : found;
+    found = insert && NULL == found ? tsearch(insert, &tree, compare_stat) : found;
+    switch(NULL == found){
+      case true: continue;
+      default:   break;
+    }
     (*found)->age = search.age;
     (*found)->count++;
   }
