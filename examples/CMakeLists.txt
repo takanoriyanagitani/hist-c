@@ -4,3 +4,4 @@ set(CMAKE_C_FLAGS "-Wall -Werror -march=native -mtune=native -mfpmath=sse -mavx2
 set(CMAKE_C_FLAGS_RELEASE "-O3 -ftree-vectorize")
 
 add_executable(e1 e1.c)
+add_executable(e2 e2.c)
